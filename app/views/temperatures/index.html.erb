@@ -1,1 +1,25 @@
-<p>Hello World</p>
+<div class="bg-gray-100 shadow-lg rounded-lg mx-auto p-6 max-w-sm">
+  <h3 class="text-2xl mb-4 font-semibold">Please enter the name of the city you would like to see the current weather for:</h3>
+
+  <div class="text-center">
+    <form action="/temperatures">
+      <div class="flex items-center justify-center mb-4">
+        <input type="text" name="city" class="w-full rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="submit" class="ml-4 px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded">Submit</button>
+      </div>
+    </form>
+
+    <h4 class="mt-4 text-lg font-semibold"><%= Date.today.strftime("%A, %B %-d, %Y") %></h4>
+
+    <div class="flex items-center justify-center mt-4">
+      <img src="https://openweathermap.org/img/wn/<%=@data["weather"].first["icon"]%>@2x.png">
+    </div>
+
+    <p class="text-gray-700 mt-2">Currently: <%= @data["weather"][0]["main"] %></p>
+    <p class="text-gray-700">Description: <%= @data["weather"][0]["description"].capitalize %></p>
+    <p class="text-gray-700">Temperature: <%= @data["main"]["temp"] %> Fahrenheit</p>
+    <p class="text-gray-700">Feels Like: <%= @data["main"]["feels_like"] %> Fahrenheit</p>
+    <p class="text-gray-700">City: <%= @data["name"] %></p>
+    <p class="text-gray-700">Country: <%= @data["sys"]["country"] %></p>
+  </div>
+</div>
