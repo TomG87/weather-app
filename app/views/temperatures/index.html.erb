@@ -1,24 +1,26 @@
 <div class="bg-gray-100 shadow-lg rounded-lg mx-auto p-6 max-w-sm">
-  <h3 class="text-2xl mb-4 font-semibold">Please enter the name of the city and country you would like to see the current weather for:</h3>
-
+  <h3 class="text-2xl mb-4 font-semibold">Please enter the city, 2 character state code(US only), and 2 character country code to get the current weather:</h3>
+   <p><br></p>
   <div class="text-center">
     <form action="/temperatures">
       <div class="flex items-center justify-center space-x-4 mb-4">
         <input type="text" name="city" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="City">
-         <input type="text" name="state" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="State">
+        <input type="text" name="state" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="State">
         <input type="text" name="country" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Country">
-        <button type="submit" class="ml-4 px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded">Submit</button>
+        <button type="submit" class="ml-4 px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-full">
+          Submit</button>
       </div>
     </form>
-
+     <p><br><br></p>
     <h4 class="mt-4 text-lg font-semibold"><%= Date.today.strftime("%A, %B %-d, %Y") %></h4>
 
     <div class="flex items-center justify-center mt-4">
       <img src="https://openweathermap.org/img/wn/<%=@data["weather"].first["icon"]%>@2x.png">
     </div>
-     <p class="text-gray-700">City: <%= @data["name"] %></p>
+
+    <p class="text-gray-700">City: <%= @data["name"] %></p>
     <p class="text-gray-700">Country: <%= @data["sys"]["country"] %></p>
-     <p class="text-gray-700">Temperature: <%= @data["main"]["temp"] %> Fahrenheit</p>
+    <p class="text-gray-700">Temperature: <%= @data["main"]["temp"] %> Fahrenheit</p>
     <p class="text-gray-700">Feels Like: <%= @data["main"]["feels_like"] %> Fahrenheit</p>
     <p class="text-gray-700 mt-2">Currently: <%= @data["weather"][0]["main"] %></p>
     <p class="text-gray-700">Description: <%= @data["weather"][0]["description"].capitalize %></p>
