@@ -57,4 +57,7 @@
 <p> Expected: <%= @forecast_data["list"][38]["weather"][0]["description"].capitalize %> </p>
 <p> Temperature: <%= @forecast_data["list"][38]["main"]["temp"] %> Fahrenheit </p>
 <p> Feels Like: <%= @forecast_data["list"][38]["main"]["feels_like"] %> Fahrenheit </p>
+<a href="/temperatures" class="primary-button" style="color: blue;">
+  <button id="temperaturesButton">Current Weather</button>
+</a>
 </div>
