@@ -1,0 +1,59 @@
+<div class="bg-gray-100 shadow-lg rounded-lg mx-auto p-6 max-w-sm">
+  <h3 class="text-2xl mb-4 font-semibold">Please enter the name of the city and country you would like the 5 day forecast for:</h3>
+
+
+  <div class="text-center">
+    <form action="/forecasts">
+      <div class="flex items-center justify-center space-x-4 mb-4">
+        <input type="text" name="city" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="City">
+         <input type="text" name="state" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="State">
+        <input type="text" name="country" class="w-1/2 rounded-lg px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Country">
+        <button type="submit" class="ml-4 px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded">Submit</button>
+      </div>
+      </form>
+
+       <p class="text-gray-700">City: <%= @forecast_data["city"]["name"] %></p>
+    <p class="text-gray-700">Country: <%= @forecast_data["city"]["country"] %></p>
+<h4 class="mt-4 text-lg font-semibold"><%= Date.tomorrow.strftime("%A, %B %-d, %Y") %></h4>
+
+<img src="https://openweathermap.org/img/wn/<%=@forecast_data["list"][6]["weather"][0]["icon"]
+%>@2x.png">
+
+<div>
+<p> Expected: <%= @forecast_data["list"][6]["weather"][0]["description"].capitalize %> </p>
+<p> Temperature: <%= @forecast_data["list"][6]["main"]["temp"] %> Fahrenheit </p>
+<p> Feels Like: <%= @forecast_data["list"][6]["main"]["feels_like"] %> Fahrenheit </p>
+</div>
+
+<img src="https://openweathermap.org/img/wn/<%=@forecast_data["list"][14]["weather"][0]["icon"]%>@2x.png">
+
+<div>
+<p> Expected: <%= @forecast_data["list"][14]["weather"][0]["description"].capitalize %> </p>
+<p> Temperature: <%= @forecast_data["list"][14]["main"]["temp"] %> Fahrenheit </p>
+<p> Feels Like: <%= @forecast_data["list"][14]["main"]["feels_like"] %> Fahrenheit </p>
+</div>
+
+<img src="https://openweathermap.org/img/wn/<%=@forecast_data["list"][22]["weather"][0]["icon"]%>@2x.png">
+
+<div>
+<p> Expected: <%= @forecast_data["list"][22]["weather"][0]["description"].capitalize %> </p>
+<p> Temperature: <%= @forecast_data["list"][22]["main"]["temp"] %> Fahrenheit </p>
+<p> Feels Like: <%= @forecast_data["list"][22]["main"]["feels_like"] %> Fahrenheit </p>
+</div>
+
+
+<img src="https://openweathermap.org/img/wn/<%=@forecast_data["list"][30]["weather"][0]["icon"]%>@2x.png">
+
+<div>
+<p> Expected: <%= @forecast_data["list"][30]["weather"][0]["description"].capitalize %> </p>
+<p> Temperature: <%= @forecast_data["list"][30]["main"]["temp"] %> Fahrenheit </p>
+<p> Feels Like: <%= @forecast_data["list"][30]["main"]["feels_like"] %> Fahrenheit </p>
+</div>
+
+<img src="https://openweathermap.org/img/wn/<%=@forecast_data["list"][38]["weather"][0]["icon"]%>@2x.png">
+
+<div>
+<p> Expected: <%= @forecast_data["list"][38]["weather"][0]["description"].capitalize %> </p>
+<p> Temperature: <%= @forecast_data["list"][38]["main"]["temp"] %> Fahrenheit </p>
+<p> Feels Like: <%= @forecast_data["list"][38]["main"]["feels_like"] %> Fahrenheit </p>
+</div>
